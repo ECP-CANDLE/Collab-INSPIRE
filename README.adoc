@@ -1,0 +1,11 @@
+= Collab-INSPIRE
+
+See the example
+https://github.com/ECP-CANDLE/Collab-INSPIRE/tree/master/tests[tests]
+
+== Further reading
+
+. Swift-NAMD work: http://www.ks.uiuc.edu/Research/swift
+. Swift-NAMD paper: http://www.mcs.anl.gov/~wozniak/papers/Swift_NAMD_2014.pdf
+. Swift/T Guide: http://swift-lang.github.io/swift-t/guide.html
+. Swift/T Notes for Titan: http://swift-lang.github.io/swift-t/sites.html#_titan

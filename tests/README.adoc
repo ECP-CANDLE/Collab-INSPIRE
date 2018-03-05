@@ -1,0 +1,20 @@
+
+= CANDLE Collab INSPIRE Examples
+
+*Login node:* Run:
+
+----
+$ ./login-1.sh
+----
+
+*Compute node:* Run:
+
+----
+$ ./compute-1.sh
+----
+
+For the compute node case, this is a shortcut to the most recent outputs:
+
+----
+$ less $( cat turbine-directory.txt )/out*
+----
