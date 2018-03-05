@@ -2,6 +2,8 @@
 set -eu
 
 # COMPUTE 1 SH
+# See http://swift-lang.github.io/swift-t/sites.html#_titan
+# to set up an output directory
 
 PATH=/lustre/atlas/world-shared/csc249/shared/swift-t/stc/bin:$PATH
 
