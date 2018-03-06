@@ -9,7 +9,7 @@ app (file coor, file vel, file xsc) simulation (file stage, file system, file ve
 
   // Run the namd executable with core mapping options and the customised
   // input configuration file.
-  bash namd2 +ppn 15 +pemap 1-15 +commap 0 stage.conf stdout=@out
+  "./namd.sh" +ppn 15 +pemap 1-15 +commap 0 stage.conf stdout=@out
 }
 
 number_of_replicas = 25;
