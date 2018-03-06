@@ -12,9 +12,9 @@ app (file coor, file vel_out, file xsc_out) simulation (file stage, file system,
   "./namd.sh" "+ppn" 15 "+pemap" "1-15" "+commap" 0 stage ; // stdout=@out
 }
 
-number_of_replicas = 25;
-string mutation_systems[] = ["MUT1", "MUT2", "MUT3", "MUT4", "MUT5", "MUT6"];
-
+number_of_replicas = 3; // 25;
+string mutation_systems[] = ["MUT1", "MUT2"];
+// , "MUT3", "MUT4", "MUT5", "MUT6"];
 
 foreach replica in [0:number_of_replicas-1] {
   foreach mutation in mutation_systems {
