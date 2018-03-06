@@ -13,7 +13,7 @@ app (file coor, file vel, file xsc) simulation (file stage, file system, file ve
 }
 
 number_of_replicas = 25;
-mutation_systems = ["MUT1", "MUT2", "MUT3", "MUT4", "MUT5", "MUT6"];
+string mutation_systems[] = ["MUT1", "MUT2", "MUT3", "MUT4", "MUT5", "MUT6"];
 
 
 foreach replica in [0:number_of_replicas-1] {
