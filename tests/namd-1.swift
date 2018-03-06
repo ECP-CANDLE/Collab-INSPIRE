@@ -2,7 +2,7 @@
 // The output and input files of the simulation app varies from the type of
 // `stage` that we are in.
 
-app (file coor, file vel, file xsc) simulation (file stage, file system, file vel, file xsc, file topology, file constraints)
+app (file coor, file vel_out, file xsc_out) simulation (file stage, file system, file vel_in, file xsc_in, file topology, file constraints)
 {
   // Cd into the correct folder and copy/link all input files in there
   // How is this done?
