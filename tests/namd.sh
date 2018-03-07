@@ -1,4 +1,8 @@
 #!/bin/bash -l
+set -eu
+
+# NAMD SH
+# Wrapper script around NAMD
 
 # This is how we load NAMD on Titan. These instruction are all coming from
 # the Titan website. This might have to go in the bash submission script.
