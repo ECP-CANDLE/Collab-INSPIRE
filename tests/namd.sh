@@ -19,5 +19,26 @@ export MPICH_UNEX_BUFFER_SIZE=100M
 # is basically a namd execution with a customised configuration file
 # as input.
 
+operation=$1
+
+if [[ $operation == "minimize" ]]
+then
+  mutation=$2 coor_out=$3 vel_out=$4 xsc_out=$5
+  echo "namd minimize mutation=$mutation"
+  touch $coor_out $vel_out $xsc_out
+  exit 0
+fi
+
+if ! [[ $operation == "heat"        ||
+        $operation == "equilibrate" ||
+        $operation == "production"  ]]
+then
+  echo "unknown namd operation: $operation"
+  exit 1
+fi
+
 # Pretend to run NAMD
-echo RUNNING NAMD! $*
+shift 10 # Lots of arguments!
+coor_out=$2 vel_out=$3 xsc_out=$4
+echo RUNNING NAMD $operation $coor_out $vel_out $xsc_out
+touch $coor_out $vel_out $xsc_out
