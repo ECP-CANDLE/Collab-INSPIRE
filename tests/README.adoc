@@ -20,3 +20,18 @@ For the compute node case, this is a shortcut to the most recent outputs:
 ----
 $ less $( cat turbine-directory.txt )/out*
 ----
+
+*NAMD 1:* Sample transcript below:
+
+----
+$ ./namd-1-login.sh
+namd minimize mutation=MUT1
+namd minimize mutation=MUT2
+RUNNING NAMD heat coor-1-MUT1-1.data vel-1-MUT1-1.data xsc-1-MUT1-1.data
+RUNNING NAMD heat coor-0-MUT2-1.data vel-0-MUT2-1.data xsc-0-MUT2-1.data
+RUNNING NAMD equilibrate coor-1-MUT1-2.data vel-1-MUT1-2.data xsc-1-MUT1-2.data
+RUNNING NAMD equilibrate coor-0-MUT2-2.data vel-0-MUT2-2.data xsc-0-MUT2-2.data
+RUNNING NAMD production coor-1-MUT1-3.data vel-1-MUT1-3.data xsc-1-MUT1-3.data
+RUNNING NAMD production coor-0-MUT2-3.data vel-0-MUT2-3.data xsc-0-MUT2-3.data
+...
+----
