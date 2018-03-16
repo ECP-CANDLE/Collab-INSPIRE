@@ -35,10 +35,10 @@ echo "I'm alive"
 mutation=$2
 basedir=$3
 mutation_dir="$basedir/$2"
-rep_no=$4 
-rep_no=$((rep_no+1)) 
+rep_no=$4
+rep_no=$((rep_no+1))
 replica_dir="$mutation_dir/replicas/rep$rep_no"
-logfile=$5 
+logfile=$5
 
 if [[ $operation == "minimize" ]]
 then
@@ -46,17 +46,17 @@ then
   cd $replica_dir/mineq_confs
   conf="eq0.conf"
   echo "namd minimize system: $mutation rep$rep_no"
-elif [[ $operation == "heat" ]] 
+elif [[ $operation == "heat" ]]
 then
   cd $replica_dir/mineq_confs
   conf="eq1.conf"
   echo "namd heat system: $mutation rep$rep_no"
-elif [[ $operation == "equilibrate" ]] 
+elif [[ $operation == "equilibrate" ]]
 then
   cd $replica_dir/mineq_confs
   conf="eq2.conf"
   echo "namd equilibrate system: $mutation rep$rep_no"
-elif [[ $operation == "production" ]] 
+elif [[ $operation == "production" ]]
 then
   cp -r $mutation_dir/sim_confs $replica_dir
   cd $replica_dir/sim_confs
@@ -67,4 +67,3 @@ fi
 namd2 ++ppn 7 +setcpuaffinity \
       +pemap 0,2,4,6,8,10,12 +commap 14 +idlepoll +devices 0 \
       $conf >& $logfile
-
