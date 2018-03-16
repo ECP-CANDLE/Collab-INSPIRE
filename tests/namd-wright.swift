@@ -5,7 +5,7 @@
 app (file log) minimize(string mutation, string dir, int replica)
 {
   // Can be polymorphic here
-  "/lustre/atlas/proj-shared/chm126/namd.sh" "minimize" mutation dir replica log ;
+  "/lustre/atlas/proj-shared/chm126/namd-wright.sh" "minimize" mutation dir replica log ;
 }
 
 app (file log) simulation(string op, string mutation, string dir, int replica)
@@ -14,7 +14,7 @@ app (file log) simulation(string op, string mutation, string dir, int replica)
   // Run the namd executable with core mapping options and the customised
   // input configuration file.
   //"./namd.sh" op mutation dir replica log; // stdout=@out
-  "/lustre/atlas/proj-shared/chm126/namd.sh" op mutation dir replica log; // stdout=@out
+  "/lustre/atlas/proj-shared/chm126/namd-wright.sh" op mutation dir replica log; // stdout=@out
 }
 
 string drug="axitinib";
