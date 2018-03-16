@@ -31,10 +31,9 @@ foreach replica in [0:number_of_replicas-1] {
     file eqlog<"%s/%s/replicas/rep%i/eq2.log"%(basedir, mutation, replica)>;
     file prodlog<"%s/%s/replicas/rep%i/sim1.log"%(basedir, mutation, replica)>;
 
-    (minlog) = minimize(mutation, basedir, replica); 
-    (heatlog) = simulation("heat", mutation, basedir, replica);
-    (eqlog) = simulation("equilibrate", mutation, basedir, replica);
-    (prodlog) = simulation("production", mutation, basedir, replica);
-
+    (minlog) = minimize(mutation, basedir, replica)                   =>
+      (heatlog) = simulation("heat", mutation, basedir, replica)      =>
+      (eqlog) = simulation("equilibrate", mutation, basedir, replica) =>
+      (prodlog) = simulation("production", mutation, basedir, replica);
   }
 }
