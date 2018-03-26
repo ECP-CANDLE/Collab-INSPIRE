@@ -7,7 +7,7 @@ set -eu
 # This is how we load NAMD on Titan. These instruction are all coming from
 # the Titan website. This might have to go in the bash submission script.
 
-module load namd/2.12
+NAMD2=/lustre/atlas/proj-shared/csc249/sfw/NAMD_2.12_Linux-x86_64-multicore/namd2
 
 export MPICH_PTL_SEND_CREDITS=-1
 export MPICH_MAX_SHORT_MSG_SIZE=8000
@@ -61,6 +61,6 @@ then
   echo "namd run production: $mutation rep$rep_no"
 fi
 
-namd2 ++ppn 7 +setcpuaffinity \
-      +pemap 0,2,4,6,8,10,12 +commap 14 +idlepoll +devices 0 \
-      $conf > $logfile 2>&1
+$NAMD2 ++ppn 7 +setcpuaffinity \
+       +pemap 0,2,4,6,8,10,12 +commap 14 +idlepoll +devices 0 \
+       $conf > $logfile 2>&1
