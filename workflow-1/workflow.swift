@@ -1,10 +1,15 @@
+
+/*
+  WORKFLOW SWIFT
+*/
+
 // The output and input files of the simulation app varies from the type of
 // `stage` that we are in.
 
 app (file log) minimize(string mutation, string dir, int replica)
 {
   // Can be polymorphic here
-  "/lustre/atlas/proj-shared/chm126/namd.sh" "minimize" mutation dir replica log ;
+  "./namd.sh" "minimize" mutation dir replica log ;
 }
 
 app (file log) simulation(string op, string mutation, string dir, int replica)
@@ -13,7 +18,7 @@ app (file log) simulation(string op, string mutation, string dir, int replica)
   // Run the namd executable with core mapping options and the customised
   // input configuration file.
   //"./namd.sh" op mutation dir replica log; // stdout=@out
-  "/lustre/atlas/proj-shared/chm126/namd.sh" op mutation dir replica log; // stdout=@out
+  "./namd.sh" op mutation dir replica log ; // stdout=@out
 }
 
 string drug="axitinib";
@@ -35,6 +40,5 @@ foreach replica in [1:number_of_replicas] {
     (heatlog) = simulation("heat", mutation, basedir, replica) =>
     (eqlog) = simulation("equilibrate", mutation, basedir, replica) =>
     (prodlog) = simulation("production", mutation, basedir, replica);
-
   }
 }
