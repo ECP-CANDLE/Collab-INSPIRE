@@ -13,4 +13,6 @@ export PROJECT=@@ SET ME @@
 export QUEUE=debug
 export TITAN=true
 
-swift-t -m cray workflow.swift
+export THIS=$( cd $( dirname $0 ) ; /bin/pwd )
+
+swift-t -m cray -e THIS -t i:./init-titan.sh workflow.swift
