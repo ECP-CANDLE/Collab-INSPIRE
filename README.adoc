@@ -9,3 +9,21 @@ https://github.com/ECP-CANDLE/Collab-INSPIRE/tree/master/tests[tests]
 . Swift-NAMD paper: http://www.mcs.anl.gov/~wozniak/papers/Swift_NAMD_2014.pdf
 . Swift/T Guide: http://swift-lang.github.io/swift-t/guide.html
 . Swift/T Notes for Titan: http://swift-lang.github.io/swift-t/sites.html#_titan
+
+== Installations
+
+=== Titan
+
+NAMD2 is at (simple untar of binary package):
+----
+/lustre/atlas/proj-shared/csc249/sfw/NAMD_2.12_Linux-x86_64-multicore/namd2
+----
+
+== Note about Titan FS
+
+Normally, we would run namd.sh out of its (git clone) source directory.  However, on Titan, we cannot access $HOME from the compute nodes.  So we copy namd.sh into the working directory of the workflow using an initialization script (init-titan.sh) and run './namd.sh' .  Each workflow run creates its own working directory called TURBINE_OUTPUT .  By default, Swift/T create a new directory based on the date under ~/turbine-output and reports it just before the workflow starts.  To change the defaults, see http://swift-lang.github.io/swift-t/sites.html#turbine_output[here].
+
+I typically make ~/turbine-output a soft link to somewhere writable, on Titan it is currently:
+----
+/lustre/atlas/scratch/wozniak/csc242/turbine-output
+----
