@@ -61,6 +61,11 @@ then
   echo "namd run production: $mutation rep$rep_no"
 fi
 
-$NAMD2 ++ppn 7 +setcpuaffinity \
-       +pemap 0,2,4,6,8,10,12 +commap 14 +idlepoll +devices 0 \
-       $conf > $logfile 2>&1
+# $NAMD2 ++ppn 7 +setcpuaffinity \
+#        +pemap 0,2,4,6,8,10,12 +commap 14 +idlepoll +devices 0 \
+#        $conf > $logfile 2>&1
+
+# The NAMD2 arguments above do not work but the following does:
+#   (Need to iterate to make sure we are using node resources well)
+$NAMD2 $conf > $logfile
+# Return NAMD2 exit code to Swift/T
