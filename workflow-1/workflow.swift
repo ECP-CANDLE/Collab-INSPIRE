@@ -3,6 +3,8 @@
   WORKFLOW SWIFT
 */
 
+import sys;
+
 // The output and input files of the simulation app varies from the type of
 // `stage` that we are in.
 
@@ -21,8 +23,10 @@ app (file log) simulation(string op, string mutation, string dir, int replica)
   "./namd.sh" op mutation dir replica log ; // stdout=@out
 }
 
+string userdir = argv("userdir");
+
 string drug="axitinib";
-string basedir=strcat("/lustre/atlas/proj-shared/chm126/esmacs/", drug);
+string basedir=userdir/drug;
 
 number_of_replicas = 10; // 25;
 string mutation_systems[] = ["wt", "e255k"];
