@@ -60,5 +60,5 @@ fi
 
 # The NAMD2 arguments above do not work but the following does:
 #   (Need to iterate to make sure we are using node resources well)
-$NAMD2 $conf > $logfile
+$NAMD2 $conf > $logfile 2>&1
 # Return NAMD2 exit code to Swift/T
