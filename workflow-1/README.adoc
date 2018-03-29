@@ -1,0 +1,25 @@
+
+= Workflow 1
+
+This simple workflow is based on the draft provided by David Wright.
+
+== Usage
+
+. Set up ~/turbine-output (see ../README.adoc)
+. Locate your data directory.  The scripts call this "userdir" +
+  For example, /lustre/atlas/proj-shared/csc249/wozniak which contains the
+  axitinib directory
+. Run:
++
+----
+./run-titan-compute.sh <userdir>
+----
+. Inspect the outputs:
+.. The two output files in TURBINE_OUTPUT contain the main stdout from the workflow
+.. The log files in the userdir contain output from the namd2 executable as redirected by namd.sh
+
+== Next steps
+
+. Change run-titan-compute.sh:WALLTIME for longer runs
+. We are running NAMD2 with default settings: need to check if all cores are being used efficiently
+. The drug is hard-coded to "axitinib"- does this need to change?
